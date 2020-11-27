@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+{% block body %}
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url(   {{ url_for('static' ,filename =  'img/home-bg.jpg') }}    )">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>{{params.get('blog_name')}}</h1>
+            <span class="subheading">{{params.get('tag_line')}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <!--fetch posts using jinja for loop-->
+
+        {% for post in posts %}
+
+        <div class="post-preview">
+          <a href="post/{{post.slug}}">
+            <h2 class="post-title">
+              {{post.title}}
+            </h2>
+            <h3 class="post-subtitle">
+              {{post.subtitle}}
+            </h3>
+            {{post.content[0:200]}}...
+          </a>
+          <p class="post-meta">Posted by
+            <a href="/login">{{post.name}}</a>
+            on {{post.date}}</p>
+
+
+        </div>
+        <hr>
+        {% endfor %}
+
+
+        <!-- Pager -->
+        <div class="clearfix">
+                                                            {% if curr is not eq 0 %}
+          <a class="btn btn-primary float-left" href="{{prev}}">&larr; Newer Posts</a>
+                                                            {% endif %}
+                                                            {% if curr is not eq last %}
+          <a class="btn btn-primary float-right" href="{{next}}">Older Posts &rarr;</a>
+                                                            {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

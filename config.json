@@ -1,0 +1,22 @@
+{
+
+  "params" : {
+
+    "local_server" : "True",
+    "local_uri" : "mysql://root:@localhost/royal library",
+    "prod_uri" : "mysql://root:@localhost/royal library",
+    "fb_url":"https://facebook.com/theRoyalLibrary",
+    "tw_url":"https://twitter.com/theRoyalLibrary",
+    "gh_url": "https://github.com/theRoyalLibrary",
+    "blog_name": "The Royal Library",
+    "tag_line": "A place to share ideas",
+    "gmail-user" : "",
+    "gmail-password" : "",
+    "about_website" : "This is website to share ideas and thoughts through a user friendly interface",
+    "max_no_of_posts" : 3,
+    "admin_username" : "abdullah_zaidan",
+    "admin_password" : "qwerty12345"
+  }
+
+
+}
