@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, redirect, url_for
+from flask import Flask, render_template, request, session, redirect, flash
 # from flask_mail import Mail
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
@@ -65,6 +65,7 @@ def logout():
 
 @app.route('/')
 def home():
+
     all_posts = Posts.query.order_by(Posts.id.desc()).all()
     total = len(all_posts)
     max_no_of_posts_per_page = int(params.get('max_no_of_posts'))
@@ -194,6 +195,7 @@ def contact():
         #                   recipients=[params['gmail-user']],
         #                   body=message + "\n" + phone
         #                   )
+        flash(' We have received your response successfully','success')
     return render_template("contact.html", params = params)
 
 
